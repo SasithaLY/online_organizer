@@ -122,9 +122,11 @@ myApp.controller("AppCtrl", function ($scope) {
 //get time difference for events with current date
 function getDifference(date, time) {
 
-    let datetime = date.toLocaleDateString() + ' ' + time.toLocaleTimeString();
+    let datetime = date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate() + ' ' + time.getHours()+':'+time.getMinutes()+':'+time.getSeconds();
     var day = new Date(datetime);
     var now = new Date();
+    now = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate() + ' ' + now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+    now = new Date(now);
 
     var diff = Math.abs(day - now);
 
