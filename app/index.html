@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My AngularJS App</title>
+    <title>Online Organizer App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="app.css">
@@ -58,14 +58,17 @@
                     <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Event
                     </button>
                 </div>
-                <div class="col-md-12 my-2">
+                <div class="col-md-12 my-2" >
+                    <div ng-if="todayEvents.length == 0">
+                       <span class="text-danger">No Events Available For This Day.</span>
+                    </div>
                     <li class="list-group-item d-flex justify-content-between border-top my-2"
                         ng-repeat="e in todayEvents">
                         <div class="col-md-9">
                             <label class="text-danger">#{{e.id}}</label> &nbsp; {{e.date.toLocaleDateString()}} &nbsp;
                             {{e.time.toLocaleTimeString()}} | {{e.name}}
                         </div>
-                        <div class="item-icon">
+                        <div>
                           <span class="btn text-success" data-toggle="modal" ng-click="selectEvent(e.id)"
                                 data-target="#editModal">
                             <i class="fa fa-pencil"></i>
